@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 
@@ -10,8 +11,8 @@ int main() {
 		for (int j = 0; j <= 14; j++) {
 
 			pos [i][j] = rand () % 10;
-			cout << pos [i][j] << " ";
+			cout << pos [i][j] << " " ;
 		}
-
+        cout << endl;
 	}
 }
