@@ -17,3 +17,4 @@ void mover(char comando, int &linha, int &coluna) {
 }
 
 } 
+

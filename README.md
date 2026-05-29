@@ -1,6 +1,6 @@
 # Minecraft-Brenda
 Trabalho final de programação 1.
-#Estrura base:
+# Estrura base:
 
 - Mostar para o usuário o contexto do "jogo"
 - Mostrar os desáfios e o que ele deve cumprir em cada um
