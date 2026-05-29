@@ -1,9 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+int main () {
 
-
-void mapa() {
 	char  pos [16][16];
 
 	for (int i = 0; i <= 15; i++) {
@@ -47,16 +46,26 @@ void mapa() {
 	int gamer = rand ()% 16;
 	pos[user][gamer] = '@';
 
+	int pedras = 0, arvores = 0, frutas = 0, animais = 0;
+
+	cout << "------------------------------------------------------------------------" << endl;
+	cout << "               Seja bem-vindo ao Mundo quadrado!" << endl;
+	cout << "\n O ícone referente ao seu personagem é: @" <<endl;
+	cout << "\nEscolha com cuidado sua aventura no mundo quadrado! " << endl;
+	cout << "1- Luz e Calor   ";
+	cout << "2- Comida    ";
+	cout << "3- Construção" << endl;
+	cout << "Escolha sua missão: [1   2   3]" << endl;
+	cout << "";
+	cout << "\n-------------------------------------------------------------------------" << endl;
+
+	cout << "-------------------------------------------------------------------------" << endl;
 	for (int i = 0; i <= 15; i++) {
 		for (int j = 0; j <= 15; j++) {
 			cout << "  "  << pos [i][j];
 		}
 		cout << endl;
 	}
-	cout << "\n" << user << "-" << gamer;
-}
-
-int main(){
-    
-    mapa();
+	cout << "\n" << pos [user][gamer];
+	cout << "-------------------------------------------------------------------------" << endl;
 }
