@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int main() {
+void mapa() {
 	char  pos [16][16];
 
 	for (int i = 0; i <= 15; i++) {
@@ -53,5 +53,10 @@ int main() {
 		}
 		cout << endl;
 	}
-	cout << "\n" << pos [user][gamer];
+	cout << "\n" << user << "-" << gamer;
+}
+
+int main(){
+    
+    mapa();
 }
