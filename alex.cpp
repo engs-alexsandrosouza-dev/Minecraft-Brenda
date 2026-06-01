@@ -117,24 +117,22 @@ int main () {
 
 
 
+
+	if(missao != 1 && missao != 2 && missao != 3) {
+		cout << "Opção inválida! ";    // VERIFICAÇÃO
+		return 0;
+	} // chave if verificação
+	
+	
+	do {
+
+
 	for (int i = 0; i <= 15; i++) {
 		for (int j = 0; j <= 15; j++) {   //MAPA
 			cout << "  "  << pos [i][j];
 		} //cheve for 2
 		cout << endl;
 	} // chave for 1
-
-
-
-
-	if(missao != 1 && missao != 2 && missao != 3) {
-		cout << "Opção inválida! ";    // VERIFICAÇÃO
-		return 0;
-	} // chave if verificação
-
-
-
-
 
 
 	cout << "\n------------------------------------------------------------------------------------" << endl;
@@ -146,5 +144,28 @@ int main () {
 	cout << "\n | Pedras: " << pedras << "          |";
 
 	cout << "\n O status da missão é: " << status << endl;
-    system("cls");
+	
+	cout << "\n Faça um movimento: [w (frente) s (atrás)  a (esquerda) d (direita) ";
+	cin >> movimento;
+	
+	pos [user][gamer] = {'x'};      // APAGA A POSIÇÃO ANTERIOR
+	
+	switch (movimento){
+	    case 'w': user -=1; break;
+	    case 's': user += 1; break;             //FAZ AS VARIÁVEIS DE LINHA E COLUNA SE ATUALIZARES
+	    case 'a': gamer -= 1; break;
+	    case 'd': gamer += 1; break;
+	}
+	
+	if (user > 15){user = 15}
+	if (user < 0){user = 0}             //NÃO DEIXA O USER SE MOVIMENTAR FORA DO MAPA
+	if (gamer > 15) {gamer = 15}
+	if (gamer < 0){gamer = 0}
+	
+	pos [user][gamer] = {'@'};          //REESCREVE O ICONE @ NA NOVA POSIÇÃO DO USER
+	
+} while (status != 's' && status != 'S');       //CONDIÇÃO
+	
+	
+	
 } // chave int main
