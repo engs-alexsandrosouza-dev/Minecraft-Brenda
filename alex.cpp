@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 using namespace std;
-int main () {
+int main() {
 
 	char  pos [16][16];
 
@@ -14,46 +14,46 @@ int main () {
 
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			int arvore = rand () % 16;             //SORTEIO DAS ARVORES
-			int tronco = rand ()% 16;
+			int arvore = rand() % 16;             //SORTEIO DAS ARVORES
+			int tronco = rand()% 16;
 			pos[arvore][tronco] = 'T';
 		}       // chave for 1
 	}       // cheve for 2
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			int fruta = rand () % 16;
-			int banana = rand ()% 16;
+			int fruta = rand() % 16;
+			int banana = rand()% 16;
 			pos[fruta][banana] = 'F';
 		}       // chave for 1
 	}       // cheve for 2
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			int pedra = rand () % 16;          //SORTEIO DAS PEDRAS
-			int rocha = rand ()% 16;
+			int pedra = rand() % 16;          //SORTEIO DAS PEDRAS
+			int rocha = rand()% 16;
 			pos[pedra][rocha] = 'P';
 		}  // chave for 1
 	}       // cheve for 2
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			int animal = rand () % 16;             //SORTEIO DOS ANIMAIS
-			int bicho = rand ()% 16;
+			int animal = rand() % 16;             //SORTEIO DOS ANIMAIS
+			int bicho = rand()% 16;
 			pos[animal][bicho] = 'A';
 		}    // chave for 1
 	}       // cheve for 2
 
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			int graveto = rand () % 16;
-			int stick = rand ()% 16;           // SORTEIO DOS GRAVETOS
+			int graveto = rand() % 16;
+			int stick = rand()% 16;           // SORTEIO DOS GRAVETOS
 			pos[graveto][stick] = 'G';
 		} // chave for 1
 	}   // cheve for 2
 
-	int user = rand () % 16;     //SORTEIO DO PERSONAGEM
-	int gamer = rand ()% 16;
+	int user = rand() % 16;     //SORTEIO DO PERSONAGEM
+	int gamer = rand()% 16;
 	pos[user][gamer] = '@';
 
 
