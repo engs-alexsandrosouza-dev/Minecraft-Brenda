@@ -157,10 +157,10 @@ int main() {
 	    case 'd': gamer += 1; break;
 	}
 	
-	if (user > 15){user = 15}
-	if (user < 0){user = 0}             //NÃO DEIXA O USER SE MOVIMENTAR FORA DO MAPA
-	if (gamer > 15) {gamer = 15}
-	if (gamer < 0){gamer = 0}
+	if (user > 15){user = 15};
+	if (user < 0){user = 0};      //NÃO DEIXA O USER SE MOVIMENTAR FORA DO MAPA
+	if (gamer > 15) {gamer = 15};
+	if (gamer < 0){gamer = 0};
 	
 	pos [user][gamer] = {'@'};          //REESCREVE O ICONE @ NA NOVA POSIÇÃO DO USER
 	
