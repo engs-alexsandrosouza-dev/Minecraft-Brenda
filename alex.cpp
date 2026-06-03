@@ -139,8 +139,13 @@ int main() {
 
 
 		for (int i = 0; i <= 15; i++) {
-			for (int j = 0; j <= 15; j++) {   //MAPA
-				cout << "  "  << pos [i][j];
+			for (int j = 0; j <= 15; j++) {  
+			    if(pos[i][j]=='x'){
+			       cout << "  "  << ".";
+			    }else{
+			        cout << "  "  << pos [i][j];
+			    }//MAPA
+				
 			} //cheve for 2
 			cout << endl;
 		} // chave for 1
@@ -206,10 +211,13 @@ int main() {
 		    cout << "Você quer coletar o intem: " << pos[user][gamer] << " [s ou n] ";
 		    cin >> coleta;
 		        if (coleta == 's' && coleta == 'S'){
-		            if (pos [user][gamer] == 'G'){gavetosnec += 1;gavetos += 1;}
+		            if (pos [user][gamer] == 'G'){
+		            gravetosnec += 1; 
+		            gravetos += 1;}
 		        }
 		    }
-		}
+		
+		
 		pos [user][gamer] = {'@'};          //REESCREVE O ICONE @ NA NOVA POSIÇÃO DO USER
 
 	} while (status != 's' && status != 'S');       //CONDIÇÃO
@@ -217,4 +225,3 @@ int main() {
 
 
 } // chave int main
-
