@@ -6,29 +6,49 @@ using namespace std;
 int main() {
     
 	srand(time(NULL));
-	char  pos [16][16];
+	char  pos [20][20];
 
-	for (int i = 0; i <= 15; i++) {
-		for (int j = 0; j <= 15; j++) {         //PREENCHIMENTO DO MAPA
+	for (int i = 0; i <= 19; i++) {
+		for (int j = 0; j <= 19; j++) {         //PREENCHIMENTO DO MAPA
+
 			pos [i][j] = 'x';
 		}       // chave for 1
 	}       // cheve for 2
-
-	for (int i = 0; i < 6; i++) {
+	
+		for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-			if (pos [i][j] == 'x') {
-				int arvore = rand() % 16;             //SORTEIO DAS ARVORES
-				int tronco = rand()% 16;
+				int armadilha = rand() % 20;             //SORTEIO DOS BURACOS
+				int buraco = rand()% 20;
+				if (pos [armadilha][buraco] == 'x')
+				pos[armadilha][buraco] = '_';
+		}       // chave for 1
+	}       // cheve for 2
+	
+		for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 6; j++) {
+				int muro = rand() % 20;             //SORTEIO DAS PAREDES 
+				int parede = rand()% 20;
+				if (pos [muro][parede] == 'x'){
+				pos[muro][parede] = '|';
+			}
+		}       // chave for 1
+	}       // cheve for 2
+
+	for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 7; j++) {
+				int arvore = rand() % 20;             //SORTEIO DAS ARVORES
+				int tronco = rand()% 20;
+				if (pos [arvore][tronco] == 'x'){
 				pos[arvore][tronco] = 'T';
 			}
 		}       // chave for 1
 	}       // cheve for 2
 
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			if (pos [i][j] == 'x') {
-				int fruta =  rand() % 16;
-				int banana = rand()% 16;
+	for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 7; j++) {
+				int fruta =  rand() % 20;
+				int banana = rand()% 20;
+				if (pos [fruta][banana] == 'x'){
 				pos[fruta][banana] = 'F';
 			}
 		}       // chave for 1
@@ -36,42 +56,43 @@ int main() {
 
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-			if (pos [i][j] == 'x') {
-				int pedra = rand() % 16;          //SORTEIO DAS PEDRAS
-				int rocha = rand()% 16;
+				int pedra = rand() % 20;          //SORTEIO DAS PEDRAS
+				int rocha = rand()% 20;
+				if (pos [pedra][rocha] == 'x'){
 				pos[pedra][rocha] = 'P';
 			}
 		}  // chave for 1
 	}       // cheve for 2
 
-	for (int i = 0; i < 5; i++) {
-		for (int j = 0; j < 5; j++) {
-			if (pos [i][j] == 'x') {
-				int animal = rand() % 16;             //SORTEIO DOS ANIMAIS
-				int bicho = rand()% 16;
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 6; j++) {
+				int animal = rand() % 20;             //SORTEIO DOS ANIMAIS
+				int bicho = rand()% 20;
+				if (pos [animal][bicho] == 'x'){
 				pos[animal][bicho] = 'A';
 			}
 		}    // chave for 1
 	}       // cheve for 2
 
-	for (int i = 0; i < 6; i++) {
-		for (int j = 0; j < 6; j++) {
-			if (pos [i][j] == 'x') {
-				int graveto = rand() % 16;
-				int galho = rand()% 16;           // SORTEIO DOS GRAVETOS
+	for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 7; j++) {
+				int graveto = rand() % 20;
+				int galho = rand()% 20;           // SORTEIO DOS GRAVETOS
+				if (pos [graveto][galho] == 'x'){
 				pos[graveto][galho] = 'G';
 			}
 		} // chave for 1
 	}   // cheve for 2
 
-	int user = rand() % 16;     //SORTEIO DO PERSONAGEM
-	int gamer = rand()% 16;
+	int user = rand() % 20;     //SORTEIO DO PERSONAGEM
+	int gamer = rand()% 20;
 	pos[user][gamer] = '@';
+
 
 	int pedrasnec = 0, arvoresnec = 0, frutasnec = 0, animaisnec = 0, gravetosnec = 0, missao; //VARIÁVEIS
 	char movimento, coleta;
 	string status;
-	int pedras = 0, arvores = 0, frutas = 0, animais = 0, gravetos = 0;
+	int pedras = 0, arvores = 0, frutas = 0, animais = 0, gravetos = 0, vidas = 100;
 
 	cout << "------------------------------------------------------------------------" << endl;
 	cout << "               Seja bem-vindo ao Mundo Quadrado!" << endl;
@@ -85,6 +106,10 @@ int main() {
 	cout << " 1 - Luz e Calor   ";
 	cout << "2 - Comida    ";                                       //INICIO
 	cout << "3 - Construção" << endl;
+	cout << endl;
+	cout << "\n Cuidado com as armadilhas!!!";
+	cout << "\n Buracos: _       ";
+	
 
 	cout << "\n   Escolha sua missão: [1   2   3] : " << endl;
 	cin >> missao;
@@ -94,18 +119,21 @@ int main() {
 		gravetosnec = 4;
 		pedrasnec = 2;
 		cout << "\n Na missão Luz e Calor seu objetivo é coletar: 4 gravetos e 2 pedras no mapa! " << endl;
+		status = "Em progresso";
 		break;
 
 	case 2:
 		frutasnec = 1;
 		animaisnec = 3;
 		cout << "\n Na missão Comida seu objetivo é coletar: 1 fruta e 3 animais! " << endl;
+		status = "Em progresso";
 		break;
 
 	case 3:
 		pedrasnec = 8;
 		arvoresnec = 4;
 		cout << "\n Na missão contrução seu objetivo é coletar: 8 pedras e 4 árvores! " << endl;
+		status = "Em progresso";
 		break;
 
 	} //chave switch case missão
@@ -122,10 +150,10 @@ int main() {
 
 	cout << "\n------------------------------------------------------------------------------------" << endl;
 
-	while (status != "Concluído!!") {     //CONDIÇÃO
+	while (status != "Concluído!!" && vidas > 0) {     //CONDIÇÃO
 
-		for (int i = 0; i <= 15; i++) {
-			for (int j = 0; j <= 15; j++) {
+		for (int i = 0; i <= 19; i++) {
+			for (int j = 0; j <= 19; j++) {
 				if(pos[i][j]=='x') {
 					cout << "  "  << ".";
 				}
@@ -147,8 +175,9 @@ int main() {
 		cout << "\n | Frutas: " << frutas << "          |";            //INVENTÁRIO
 		cout << "\n | Gravetos: " <<gravetos << "        |";
 		cout << "\n | Pedras: " << pedras << "          |";
+		cout << "\n | Vidas: " << vidas << "      |";
 
-		cout << "\nStatus atual: " << status << endl;
+		cout << "\nStatus atual: " << status << endl << endl;
 
 		cout << "\n Faça um movimento: w (cima) s (baixo)  a (esquerda) d (direita) ";
 		cin >> movimento;
@@ -182,20 +211,27 @@ int main() {
 			break;
 		} // FECHA SWITCH MOVIMENTO
 
-		if (user > 15) {
-			user = 15;
+		if (user > 19) {
+			user = 19;
 		}
 		if (user < 0) {
 			user = 0;   //NÃO DEIXA O USER SE MOVIMENTAR FORA DO MAPA
 		}
-		if (gamer > 15) {
-			gamer = 15;
+		if (gamer > 19) {
+			gamer = 19;
 		}
 		if (gamer < 0) {
 			gamer = 0;
 		}
+		
+		if (pos [user][gamer] == '_'){
+		   vidas -= 10;
+		}
+		else if (pos [user][gamer] == '|'){
+		    vidas -=10;
+		}
 
-		if (pos [user][gamer] != 'x') {
+		if (pos [user][gamer] != 'x' && pos [user][gamer] != '_' && pos [user][gamer] != '|' ) {
 			cout << pos [user][gamer] << endl << endl;
 			cout << "Você quer coletar o item: " << pos[user][gamer] << " [s ou n] ";
 			cin >> coleta;
@@ -258,8 +294,14 @@ int main() {
 			}
 			break;
 		}
+		
 	}
 	
+	if (vidas <= 0){
+	    cout << "\n Você morreu! ";
+	    return 0;
+	}
+	else{
 	cout << "\n Missão concluída com sucesso!!!";
-	
+	}
 } // chave int main
