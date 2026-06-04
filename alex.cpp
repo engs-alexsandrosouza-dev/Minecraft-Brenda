@@ -4,7 +4,8 @@
 
 using namespace std;
 int main() {
-
+    
+	srand(time(NULL));
 	char  pos [16][16];
 
 	for (int i = 0; i <= 15; i++) {
@@ -67,15 +68,10 @@ int main() {
 	int gamer = rand()% 16;
 	pos[user][gamer] = '@';
 
-
-
 	int pedrasnec = 0, arvoresnec = 0, frutasnec = 0, animaisnec = 0, gravetosnec = 0, missao; //VARIÁVEIS
 	char movimento, coleta;
 	string status;
 	int pedras = 0, arvores = 0, frutas = 0, animais = 0, gravetos = 0;
-
-
-
 
 	cout << "------------------------------------------------------------------------" << endl;
 	cout << "               Seja bem-vindo ao Mundo Quadrado!" << endl;
@@ -90,10 +86,6 @@ int main() {
 	cout << "2 - Comida    ";                                       //INICIO
 	cout << "3 - Construção" << endl;
 
-
-
-
-
 	cout << "\n   Escolha sua missão: [1   2   3] : " << endl;
 	cin >> missao;
 
@@ -102,14 +94,12 @@ int main() {
 		gravetosnec = 4;
 		pedrasnec = 2;
 		cout << "\n Na missão Luz e Calor seu objetivo é coletar: 4 gravetos e 2 pedras no mapa! " << endl;
-		if (pedrasnec != pedras && gravetosnec != gravetos){ status = "Em progresso"; } else { status = "Concluído!!";}
 		break;
 
 	case 2:
 		frutasnec = 1;
 		animaisnec = 3;
 		cout << "\n Na missão Comida seu objetivo é coletar: 1 fruta e 3 animais! " << endl;
-		if (frutasnec != frutas && animaisnec != animais){ status = "Em progresso"; } else { status = "Concluído!!";}
 		break;
 
 	case 3:
@@ -121,24 +111,18 @@ int main() {
 	} //chave switch case missão
 
 
+	if(missao != 1 && missao != 2 && missao != 3) {
+		cout << "Opção inválida! ";    // VERIFICAÇÃO
+		return 0;
+	} // chave if verificação
+
 	cout << "\n Sua posição atual é: " << user << "-" <<gamer << endl;
 	cout << "\n Para se mover user as teclas w [cima] d [direita] s [baixo] a [esquerda]";
 	cout << "\n";
 
 	cout << "\n------------------------------------------------------------------------------------" << endl;
 
-
-
-
-
-	if(missao != 1 && missao != 2 && missao != 3) {
-		cout << "Opção inválida! ";    // VERIFICAÇÃO
-		return 0;
-	} // chave if verificação
-
-
-	do {
-
+	while (status != "Concluído!!") {     //CONDIÇÃO
 
 		for (int i = 0; i <= 15; i++) {
 			for (int j = 0; j <= 15; j++) {
@@ -164,7 +148,7 @@ int main() {
 		cout << "\n | Gravetos: " <<gravetos << "        |";
 		cout << "\n | Pedras: " << pedras << "          |";
 
-		cout  << "\n O status da missão é: " << status << endl;
+		cout << "\nStatus atual: " << status << endl;
 
 		cout << "\n Faça um movimento: w (cima) s (baixo)  a (esquerda) d (direita) ";
 		cin >> movimento;
@@ -212,35 +196,70 @@ int main() {
 		}
 
 		if (pos [user][gamer] != 'x') {
-		    cout << pos [user][gamer] << endl << endl;
+			cout << pos [user][gamer] << endl << endl;
 			cout << "Você quer coletar o item: " << pos[user][gamer] << " [s ou n] ";
 			cin >> coleta;
 			if (coleta == 's' || coleta == 'S') {
-			    
+
 				if (pos [user][gamer] == 'G') {
 					gravetos += 1;
 				}
-			else if (pos [user][gamer] == 'T') {
-				arvores += 1;
-			}
+				else if (pos [user][gamer] == 'T') {
+					arvores += 1;
+				}
 
-			else if (pos [user][gamer] == 'P') {
-				pedras += 1;
-			}
+				else if (pos [user][gamer] == 'P') {
+					pedras += 1;
+				}
 
-            else if (pos [user][gamer] == 'A'){
-		            animais += 1;
-		            }
-		    else if (pos [user][gamer] == 'F'){
-		            frutas = frutas + 1;
-		            }
+				else if (pos [user][gamer] == 'A') {
+					animais += 1;
+				}
+				else if (pos [user][gamer] == 'F') {
+					frutas = frutas + 1;
+				}
 			}
 		} // chave if item
 
+
+
 		pos [user][gamer] = {'@'};          //REESCREVE O ICONE @ NA NOVA POSIÇÃO DO USER
 
-	} while (status != "Concluído!!");       //CONDIÇÃO
+		switch (missao) {
 
+		case 1:
+			if (pedrasnec <= pedras && gravetosnec <= gravetos) {
+				status = "Concluído!!";
 
+			}
+			else {
+				status = "Em progresso";
 
+			}
+			break;
+
+		case 2:
+			if (frutasnec <= frutas && animaisnec <= animais) {
+				status = "Concluído!!";
+			}
+			else {
+				status = "Em progresso";
+
+			}
+			break;
+
+		case 3:
+			if (arvoresnec <= arvores && pedrasnec <= pedras) {
+				status = "Concluído!!";
+			}
+			else {
+				status = "Em progresso";
+
+			}
+			break;
+		}
+	}
+	
+	cout << "\n Missão concluída com sucesso!!!";
+	
 } // chave int main
