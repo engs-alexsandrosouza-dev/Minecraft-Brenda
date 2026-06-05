@@ -305,18 +305,22 @@ int main() {
 
 	if (vidas <= 0) {
 		cout << "\nVocê morreu!";
+		cout << "\n----------------------------------";
 		return 0;
 	}
 
 
 	if (missao == 1) {
 		cout << "\nMissão: Luz e Calor Concluída!!";
+		cout << "\n----------------------------------";
 	}
 	else if (missao == 2) {
 		cout << "\nMissão: Comida Concluída!!";
+		cout << "\n----------------------------------";
 	}
 	else if (missao == 3) {
 		cout << "\nMissão: Construção Concluída!!";
+		cout << "\n----------------------------------";
 	}
 }
 // chave int main
