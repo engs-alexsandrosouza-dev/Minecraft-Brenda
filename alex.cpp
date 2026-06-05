@@ -4,7 +4,7 @@
 
 using namespace std;
 int main() {
-    
+
 	srand(time(NULL));
 	char  pos [20][20];
 
@@ -14,21 +14,21 @@ int main() {
 			pos [i][j] = 'x';
 		}       // chave for 1
 	}       // cheve for 2
-	
-		for (int i = 0; i < 6; i++) {
+
+	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-				int armadilha = rand() % 20;             //SORTEIO DOS BURACOS
-				int buraco = rand()% 20;
-				if (pos [armadilha][buraco] == 'x')
+			int armadilha = rand() % 20;             //SORTEIO DOS BURACOS
+			int buraco = rand()% 20;
+			if (pos [armadilha][buraco] == 'x')
 				pos[armadilha][buraco] = '_';
 		}       // chave for 1
 	}       // cheve for 2
-	
-		for (int i = 0; i < 6; i++) {
+
+	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-				int muro = rand() % 20;             //SORTEIO DAS PAREDES 
-				int parede = rand()% 20;
-				if (pos [muro][parede] == 'x'){
+			int muro = rand() % 20;             //SORTEIO DAS PAREDES
+			int parede = rand()% 20;
+			if (pos [muro][parede] == 'x') {
 				pos[muro][parede] = '|';
 			}
 		}       // chave for 1
@@ -36,9 +36,9 @@ int main() {
 
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 7; j++) {
-				int arvore = rand() % 20;             //SORTEIO DAS ARVORES
-				int tronco = rand()% 20;
-				if (pos [arvore][tronco] == 'x'){
+			int arvore = rand() % 20;             //SORTEIO DAS ARVORES
+			int tronco = rand()% 20;
+			if (pos [arvore][tronco] == 'x') {
 				pos[arvore][tronco] = 'T';
 			}
 		}       // chave for 1
@@ -46,9 +46,9 @@ int main() {
 
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 7; j++) {
-				int fruta =  rand() % 20;
-				int banana = rand()% 20;
-				if (pos [fruta][banana] == 'x'){
+			int fruta =  rand() % 20;
+			int banana = rand()% 20;
+			if (pos [fruta][banana] == 'x') {
 				pos[fruta][banana] = 'F';
 			}
 		}       // chave for 1
@@ -56,9 +56,9 @@ int main() {
 
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-				int pedra = rand() % 20;          //SORTEIO DAS PEDRAS
-				int rocha = rand()% 20;
-				if (pos [pedra][rocha] == 'x'){
+			int pedra = rand() % 20;          //SORTEIO DAS PEDRAS
+			int rocha = rand()% 20;
+			if (pos [pedra][rocha] == 'x') {
 				pos[pedra][rocha] = 'P';
 			}
 		}  // chave for 1
@@ -66,9 +66,9 @@ int main() {
 
 	for (int i = 0; i < 6; i++) {
 		for (int j = 0; j < 6; j++) {
-				int animal = rand() % 20;             //SORTEIO DOS ANIMAIS
-				int bicho = rand()% 20;
-				if (pos [animal][bicho] == 'x'){
+			int animal = rand() % 20;             //SORTEIO DOS ANIMAIS
+			int bicho = rand()% 20;
+			if (pos [animal][bicho] == 'x') {
 				pos[animal][bicho] = 'A';
 			}
 		}    // chave for 1
@@ -76,9 +76,9 @@ int main() {
 
 	for (int i = 0; i < 7; i++) {
 		for (int j = 0; j < 7; j++) {
-				int graveto = rand() % 20;
-				int galho = rand()% 20;           // SORTEIO DOS GRAVETOS
-				if (pos [graveto][galho] == 'x'){
+			int graveto = rand() % 20;
+			int galho = rand()% 20;           // SORTEIO DOS GRAVETOS
+			if (pos [graveto][galho] == 'x') {
 				pos[graveto][galho] = 'G';
 			}
 		} // chave for 1
@@ -109,7 +109,7 @@ int main() {
 	cout << endl;
 	cout << "\n Cuidado com as armadilhas!!!";
 	cout << "\n Buracos: _       ";
-	
+
 
 	cout << "\n   Escolha sua missão: [1   2   3] : " << endl;
 	cin >> missao;
@@ -150,7 +150,7 @@ int main() {
 
 	cout << "\n------------------------------------------------------------------------------------" << endl;
 
-	while (status != "Concluído!!" && vidas > 0) {     //CONDIÇÃO
+	while (status != "Concluído" && vidas > 0) {     //CONDIÇÃO
 
 		for (int i = 0; i <= 19; i++) {
 			for (int j = 0; j <= 19; j++) {
@@ -175,7 +175,7 @@ int main() {
 		cout << "\n | Frutas: " << frutas << "          |";            //INVENTÁRIO
 		cout << "\n | Gravetos: " <<gravetos << "        |";
 		cout << "\n | Pedras: " << pedras << "          |";
-		cout << "\n | Vidas: " << vidas << "      |";
+		cout << "\n | Vidas: " << vidas << "         |";
 
 		cout << "\nStatus atual: " << status << endl << endl;
 
@@ -223,12 +223,12 @@ int main() {
 		if (gamer < 0) {
 			gamer = 0;
 		}
-		
-		if (pos [user][gamer] == '_'){
-		   vidas -= 10;
+
+		if (pos [user][gamer] == '_') {
+			vidas -= 10;
 		}
-		else if (pos [user][gamer] == '|'){
-		    vidas -=10;
+		else if (pos [user][gamer] == '|') {
+			vidas -=10;
 		}
 
 		if (pos [user][gamer] != 'x' && pos [user][gamer] != '_' && pos [user][gamer] != '|' ) {
@@ -265,7 +265,7 @@ int main() {
 
 		case 1:
 			if (pedrasnec <= pedras && gravetosnec <= gravetos) {
-				status = "Concluído!!";
+				status = "Concluído";
 
 			}
 			else {
@@ -276,7 +276,7 @@ int main() {
 
 		case 2:
 			if (frutasnec <= frutas && animaisnec <= animais) {
-				status = "Concluído!!";
+				status = "Concluído";
 			}
 			else {
 				status = "Em progresso";
@@ -286,7 +286,7 @@ int main() {
 
 		case 3:
 			if (arvoresnec <= arvores && pedrasnec <= pedras) {
-				status = "Concluído!!";
+				status = "Concluído";
 			}
 			else {
 				status = "Em progresso";
@@ -294,14 +294,24 @@ int main() {
 			}
 			break;
 		}
-		
+
 	}
+
+
+	if (vidas <= 0) {
+		cout << "\nVocê morreu!";
+		return 0;
+	}
+
 	
-	if (vidas <= 0){
-	    cout << "\n Você morreu! ";
-	    return 0;
+	 if (missao == 1) {
+			cout << "\nMissão: Luz e Calor Concluída!!";
+		}
+		else if (missao == 2) {
+			cout << "\nMissão: Comida Concluída!!";
+		}
+		else if (missao == 3) {
+			cout << "\nMissão: Construção Concluída!!";
+		}
 	}
-	else{
-	cout << "\n Missão concluída com sucesso!!!";
-	}
-} // chave int main
+ // chave int mainhttps://www.onlinegdb.com/online_c++_compiler#tab-stdin
