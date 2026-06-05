@@ -91,7 +91,7 @@ int main() {
 
 	int pedrasnec = 0, arvoresnec = 0, frutasnec = 0, animaisnec = 0, gravetosnec = 0, missao; //VARIÁVEIS
 	char movimento, coleta;
-	string status;
+	string status, statusconcluido;
 	int pedras = 0, arvores = 0, frutas = 0, animais = 0, gravetos = 0, vidas = 100;
 
 	cout << "------------------------------------------------------------------------" << endl;
@@ -267,6 +267,7 @@ int main() {
 			if (pedrasnec <= pedras && gravetosnec <= gravetos) {
 				status = "Concluído";
 
+
 			}
 			else {
 				status = "Em progresso";
@@ -276,6 +277,7 @@ int main() {
 
 		case 2:
 			if (frutasnec <= frutas && animaisnec <= animais) {
+				statusconcluido = "Concluído!";
 				status = "Concluído";
 			}
 			else {
@@ -296,6 +298,9 @@ int main() {
 		}
 
 	}
+	cout << "\n----------------------------------";
+	cout << "\nStatus atual: " << status;
+	cout << "\n----------------------------------";
 
 
 	if (vidas <= 0) {
@@ -303,15 +308,15 @@ int main() {
 		return 0;
 	}
 
-	
-	 if (missao == 1) {
-			cout << "\nMissão: Luz e Calor Concluída!!";
-		}
-		else if (missao == 2) {
-			cout << "\nMissão: Comida Concluída!!";
-		}
-		else if (missao == 3) {
-			cout << "\nMissão: Construção Concluída!!";
-		}
+
+	if (missao == 1) {
+		cout << "\nMissão: Luz e Calor Concluída!!";
 	}
- // chave int mainhttps://www.onlinegdb.com/online_c++_compiler#tab-stdin
+	else if (missao == 2) {
+		cout << "\nMissão: Comida Concluída!!";
+	}
+	else if (missao == 3) {
+		cout << "\nMissão: Construção Concluída!!";
+	}
+}
+// chave int main
